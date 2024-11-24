@@ -45,7 +45,7 @@ public class Average {
 
         //double mean = total/5;
 
-        return data.toString() + Integer.valueOf(total/5); ///not sure. does this include all? //how do I add mean in it??
+        return data.toString() + Integer.valueOf(total/5);
     }
 
     public void selectionSort(){ //Still not sure
