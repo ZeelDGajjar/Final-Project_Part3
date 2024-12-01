@@ -3,15 +3,16 @@ import java.util.Scanner;
 
 public class Average {
 
-    //Data fields
+    // Data fields
     private double[] data;
     private double mean;
 
-    public Average(int scores){
-        data = new double [scores];
+    // Constructor: Takes input for 5 scores and initializes the array
+    public Average() {
+        data = new double[5]; // Fixed size of 5
         Scanner info = new Scanner(System.in);
 
-        for(int i = 0; i < data.length; i++){
+        for (int i = 0; i < data.length; i++) {
             System.out.printf("Please enter score %d: ", i + 1);
             data[i] = info.nextDouble();
         }
@@ -20,40 +21,17 @@ public class Average {
         calculateMean();
     }
 
-    public void calculateMean(){
+    // Method to calculate the mean
+    public void calculateMean() {
         double total = 0;
-        for(double num: data){
+        for (double num : data) {
             total += num;
         }
         mean = total / data.length;
     }
 
-    public String toString(){
-        int[] data = new int[5]; // Create an array with 5 elements
-
-
-        // Bubble sort to arrange the numbers in descending order
-        for (int i = 0; i < data.length - 1; i++) {
-            for (int j = 0; j < data.length - i - 1; j++) {
-                if (data[j] < data[j + 1]) {
-                    // Swap the values if they are in the wrong order
-                    int temp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = temp;
-                }
-            }
-        }
-
-        // Calculate the total sum of the array
-        int total = 0;
-        for (int i = 0; i < data.length; i++) {
-            total += data[i]; // Add each value to total
-        }
-
-        // Calculate the mean (average)
-        double mean = (double) total / data.length;
-
-        // Construct the string for the sorted array manually
+    // toString method returns a string representation of the data
+    public String toString() {
         String result = "Data in descending order: ";
         for (int i = 0; i < data.length; i++) {
             result += data[i]; // Add each number to the result string
@@ -62,25 +40,27 @@ public class Average {
             }
         }
 
-        // Return the final string with the mean
         return result + "\nMean: " + mean;
     }
 
-    public void selectionSort(){ //Still not sure
-        for (int i = 0; i < data.length; i++) {
-            int minIndex = i;
+    // Method to perform selection sort in descending order
+    public void selectionSort() {
+        for (int i = 0; i < data.length - 1; i++) {
+            int maxIndex = i;
             for (int j = i + 1; j < data.length; j++) {
-                if (data[j] > data[minIndex]) {
-                    minIndex = j;
+                if (data[j] > data[maxIndex]) {
+                    maxIndex = j;
                 }
             }
-
-            //Swap the values
-            double temp = data[minIndex];
-            data[minIndex] = data[i];
+            // Swap the found maximum element with the first element
+            double temp = data[maxIndex];
+            data[maxIndex] = data[i];
             data[i] = temp;
         }
-
     }
 
+    public static void main(String[] args) {
+        Average avg = new Average();
+        System.out.println(avg.toString()); // Display the results
+    }
 }
