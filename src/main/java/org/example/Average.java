@@ -1,6 +1,11 @@
 package org.example;
 import java.util.Scanner;
 
+/**
+ *
+ * @author 2474008
+ */
+
 public class Average {
 
     // Data fields
