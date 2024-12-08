@@ -1,8 +1,13 @@
 package org.example;
 
+/**
+ *
+ * @author 2474008
+ */
 
 import java.util.Scanner;
 import java.io.*;
+
 /**
  This program creates a list of songs for a CD
  by reading from a file.
