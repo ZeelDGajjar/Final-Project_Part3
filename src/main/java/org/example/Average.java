@@ -2,9 +2,8 @@ package org.example;
 import java.util.Scanner;
 
 /**
- *
  * @author 2474008
- */
+ * */
 
 public class Average {
 
@@ -12,9 +11,12 @@ public class Average {
     private double[] data;
     private double mean;
 
-    // Constructor: Takes input for 5 scores and initializes the array
+    /**
+     * Constructor for Average class that takes input for 5 scores,
+     * stores them in an array, and calculates the mean.
+     */
     public Average() {
-        data = new double[5]; // Fixed size of 5
+        data = new double[5]; // Fixed size of 5 for storing the scores
         Scanner info = new Scanner(System.in);
 
         for (int i = 0; i < data.length; i++) {
@@ -26,7 +28,9 @@ public class Average {
         calculateMean();
     }
 
-    // Method to calculate the mean
+    /**
+     * Calculates the mean of the scores by summing them up and dividing by the number of scores.
+     */
     public void calculateMean() {
         double total = 0;
         for (double num : data) {
@@ -35,20 +39,25 @@ public class Average {
         mean = total / data.length;
     }
 
-    // toString method returns a string representation of the data
+    /**
+     * Returns a string representation of the sorted data and the mean.
+     * @return A string with the scores in descending order and the mean.
+     */
     public String toString() {
         String result = "Data in descending order: ";
         for (int i = 0; i < data.length; i++) {
-            result += data[i]; // Add each number to the result string
+            result += data[i];
             if (i < data.length - 1) {
-                result += ", "; // Add a comma between numbers
+                result += ", ";
             }
         }
 
         return result + "\nMean: " + mean;
     }
 
-    // Method to perform selection sort in descending order
+    /**
+     * Sorts the data array in descending order using the selection sort algorithm.
+     */
     public void selectionSort() {
         for (int i = 0; i < data.length - 1; i++) {
             int maxIndex = i;
@@ -62,10 +71,5 @@ public class Average {
             data[maxIndex] = data[i];
             data[i] = temp;
         }
-    }
-
-    public static void main(String[] args) {
-        Average avg = new Average();
-        System.out.println(avg.toString()); // Display the results
     }
 }
