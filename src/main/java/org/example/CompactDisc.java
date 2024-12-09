@@ -1,12 +1,11 @@
 package org.example;
 
-/**
- *
- * @author 2474008
- */
-
 import java.util.Scanner;
 import java.io.*;
+
+/**
+ * @author 2474008
+ * */
 
 /**
  This program creates a list of songs for a CD
@@ -30,9 +29,10 @@ public class CompactDisc
             artist = input.nextLine();
 
             // ADD LINES FOR TASK #3 HERE
-            cd[i] = new Song(title, artist); // Fill the array by creating a new song with
+            // Fill the array by creating a new song with
             // the title and artist and storing it in the
             // appropriate position in the array
+            cd[i] = new Song(title, artist);
         }
 
         input.close();
@@ -42,7 +42,7 @@ public class CompactDisc
         for (int i = 0; i < cd.length; i++) {
             // ADD LINES FOR TASK #3 HERE
             // Print the contents of the array to the console
-            System.out.println(cd[i].toString());
+            System.out.print(cd[i].toString());
         }
     }
 
